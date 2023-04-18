@@ -1,5 +1,14 @@
 #include <Adafruit_Fingerprint.h>                             // Подключение библиотеки Adafruit Fingerprint
  
+/*
+volatile int finger_status = -1;
+SoftwareSerial mySerial(2, 3);  
+Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
+void setup()  
+
+цуууууууууууууууууууууууууууууууууууууууу
+
+*/
 volatile int finger_status = -1;
 SoftwareSerial mySerial(2, 3);  
 Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
@@ -17,6 +26,15 @@ void setup()
   
   finger.begin(57600);                                       // Установите скорость передачи данных для последовательного порта датчика
   
+/*
+ if (finger.verifyPassword()) {
+    Serial.println("Found fingerprint sensor!");
+  } else {
+    Serial.println("Did not find fingerprint sensor :(");
+    while (1) { delay(1); }
+  }
+*/
+
   if (finger.verifyPassword()) {
     Serial.println("Found fingerprint sensor!");
   } else {
