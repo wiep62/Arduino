@@ -5,6 +5,7 @@
 SoftwareSerial mySerial(7, 8);
 
 void setup()
+/* proverka raboty
 {
   // Начать последовательную связь Arduino и Arduino IDE (монитор последовательного порта)
   Serial.begin(9600);
@@ -29,6 +30,7 @@ void setup()
   updateSerial();
   mySerial.write(26);
 }
+*/
 
 void loop()
 {
