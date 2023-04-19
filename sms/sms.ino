@@ -8,11 +8,6 @@ SoftwareSerial mySerial(7, 8);
 
 */
 
-#include <SoftwareSerial.h>
-
-// Создать объект программного последовательного порта для связи с SIM900
-// Tx и Rx SIM900 подключены к выводам 7 и 8 Arduino
-SoftwareSerial mySerial(7, 8);
 
 void setup()
 {
