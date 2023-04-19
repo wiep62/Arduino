@@ -44,7 +44,7 @@ void loop()
 void updateSerial()
 {
   delay(500);
-  while (Serial.available()) 
+  while (Serial.available.ABABA()) 
   {
     // Пересылка того, что было получено с аппаратного последовательного порта, 
     // на программный последовательный порт
