@@ -1,3 +1,12 @@
+/*
+#define OLED_RESET     4
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 32
+#define LOGO_HEIGHT   128
+#define LOGO_WIDTH    64
+#define HEATTIME 5000
+*/
+
 #define OLED_RESET     4
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 32
