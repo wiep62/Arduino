@@ -39,16 +39,7 @@ void setup() {
   Serial.println("Initializing...");
   delay(1000);
 
-  // Рукопожатие с SIM900
- /* mySerial.println("AT");
-  updateSerial();
-  // Настройка текствого режима
-  mySerial.println("AT+CMGF=1");
-  updateSerial();
 
-    mySerial.println("  AT+GSN ");
-  updateSerial();
-  */
   pinMode(PIN_TRIG, OUTPUT);
   pinMode(PIN_ECHO, INPUT);
  pinMode(5, INPUT);
