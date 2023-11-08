@@ -1,4 +1,7 @@
 #include <SoftwareSerial.h>
+#include "Arduino.h"
+#include "SoftwareSerial.h"
+#include "DFRobotDFPlayerMini.h"
 
 // Создать объект программного последовательного порта для связи с SIM900
 // Tx и Rx SIM900 подключены к выводам 7 и 8 Arduino
@@ -16,6 +19,12 @@ boolean zz = true;
 boolean xxx = true;
 boolean yyy = true;
 
+SoftwareSerial mySoftwareSerial(11, 10); // RX, TX
+ 
+DFRobotDFPlayerMini myDFPlayer;
+void printDetail(uint8_t type, int value);
+
+
 void setup()
 {
   // Начать последовательную связь Arduino и Arduino IDE (монитор последовательного порта)
@@ -32,6 +41,25 @@ void setup()
   pinMode(2, OUTPUT);
    pinMode(3, OUTPUT);
  digitalWrite(3, 1);
+
+      mySoftwareSerial.begin(9600);
+  Serial.begin(9600);
+  Serial.println();
+  Serial.println(F("DFRobot DFPlayer Mini Demo"));
+  Serial.println(F("Initializing DFPlayer ... (May take 3~5 seconds)"));
+  if (!myDFPlayer.begin(mySoftwareSerial)) {  //Use softwareSerial to communicate with mp3.
+    Serial.println(F("Unable to begin:"));
+    Serial.println(F("1.Please recheck the connection!"));
+    Serial.println(F("2.Please insert the SD card!"));
+    while (true);
+      myDFPlayer.volume(30);  // Установка громкости от 0 до 30
+  myDFPlayer.EQ(DFPLAYER_EQ_NORMAL);
+  myDFPlayer.outputDevice(DFPLAYER_DEVICE_SD);
+ }
+ 
+  Serial.println(F("DFPlayer Mini online."));
+ 
+ 
 }
 
 void loop()
@@ -57,7 +85,6 @@ delay(1000);
 
   }
 
-        Serial.println(digitalRead(4));
    
       
  
@@ -87,6 +114,10 @@ delay(1000);
 x = false;
  //digitalWrite(3, 0);
   }
+ 
+  //запуск звука
+     myDFPlayer.play(1);
+        delay(4000);
   }
 
   
@@ -119,7 +150,9 @@ y = false;
 
  //digitalWrite(3, 0);
   }
-  
+//запуск звука
+     myDFPlayer.play(2);
+        delay(4000);
       }
    
         if(analogRead(2) > 300){
@@ -149,7 +182,9 @@ z = false;
 
  //digitalWrite(3, 0);
   }
-  
+  //запуск звука
+     myDFPlayer.play(3);
+        delay(4000);
       }
 
 
@@ -180,7 +215,9 @@ yyy = false;
 
  //digitalWrite(3, 0);
   }
-  
+  //запуск звука
+     myDFPlayer.play(4);
+        delay(4000);
       }
 
           
@@ -211,7 +248,9 @@ xx = false;
 
  //digitalWrite(3, 0);
   }
-  
+  //запуск звука
+     myDFPlayer.play(5);
+        delay(4000);
       }    
 
     if(analogRead(5) > 300){
@@ -241,7 +280,9 @@ yy = false;
 
  //digitalWrite(3, 0);
   }
-  
+  //запуск звука
+     myDFPlayer.play(11);
+        delay(4000);
       }
 
               if(analogRead(6) > 300){
@@ -271,7 +312,10 @@ zz = false;
 
  //digitalWrite(3, 0);
   }
-  
+
+  //запуск звука
+     myDFPlayer.play(7);
+        delay(4000);
       }
 
     if(analogRead(7) > 300){
@@ -302,6 +346,9 @@ xxx = false;
  //digitalWrite(3, 0);
   }
   
+    //запуск звука
+     myDFPlayer.play(8);
+        delay(4000);
       }
 
 
